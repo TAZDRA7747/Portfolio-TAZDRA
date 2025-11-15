@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Léo [Nom] - Monteur Vidéo Gaming</title>
+    
+    <!-- Laison vers le fichier CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Polices Google : Orbitron (Titres) et Poppins (Texte) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icônes (IonIcons) -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+    <!-- Arrière-plan avec blobs de couleur pour l'effet de verre -->
+    <div class="background-blobs">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+    </div>
+
+    <!-- =========== BARRE DE NAVIGATION =========== -->
+    <!-- Note: la classe "glass-effect" vient du CSS -->
+    <nav class="glass-effect">
+        <div class="container nav-container">
+            <a href="#accueil" class="logo">LÉO.</a>
+            <ul class="nav-links">
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#logiciels">Logiciels</a></li>
+                <li><a href="#contact" class="nav-contact-btn">Contact</a></li>
+            </ul>
+            <!-- Bouton Hamburger (pour une future version mobile avancée) -->
+            <button class="mobile-menu-btn" aria-label="Ouvrir le menu">
+                <ion-icon name="menu-outline"></ion-icon>
+            </button>
+        </div>
+    </nav>
+
+    <!-- =========== SECTION ACCUEIL (HÉROS) =========== -->
+    <header id="accueil">
+        <div class="container hero-container">
+            <h1 class="hero-title">
+                <span>Léo [Son Nom]</span>
+                Monteur Vidéo Gaming
+            </h1>
+            <p class="hero-subtitle">
+                <!-- Léo doit mettre son accroche ici -->
+                Je transforme vos streams et rushs en vidéos YouTube dynamiques qui captivent votre audience.
+            </p>
+            <a href="#portfolio" class="cta-button">Voir mes montages</a>
+        </div>
+    </header>
+
+    <!-- =========== SECTION PORTFOLIO (Vidéos) =========== -->
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Mon Portfolio</h2>
+            
+            <div class="portfolio-grid">
+                
+                <!-- Projet 1 -->
+                <article class="portfolio-card glass-effect">
+                    <div class="video-container">
+                        <!-- Léo doit remplacer ceci par son embed YouTube -->
+                        <!-- Astuce: Sur YouTube > Partager > Intégrer > Copier le code iframe -->
+                        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" ... ></iframe> -->
+                        <img src="https://placehold.co/600x400/D900FF/0D0C0F?text=Vid%C3%A9o+Montage+1" alt="Placeholder vidéo">
+                    </div>
+                    <div class="card-content">
+                        <h3>[Titre de la Vidéo ou du Client]</h3>
+                        <p>Description courte du montage : style, type de jeu (ex: Best-of stream, montage "fragmovie", etc.)</p>
+                    </div>
+                </article>
+
+                <!-- Projet 2 -->
+                <article class="portfolio-card glass-effect">
+                    <div class="video-container">
+                        <!-- Remplacer par l'embed YouTube -->
+                        <img src="https://placehold.co/600x400/00E5FF/0D0C0F?text=Vid%C3%A9o+Montage+2" alt="Placeholder vidéo">
+                    </div>
+                    <div class="card-content">
+                        <h3>[Titre de la Vidéo ou du Client]</h3>
+                        <p>Description courte du montage : style, type de jeu (ex: Best-of stream, montage "fragmovie", etc.)</p>
+                    </div>
+                </article>
+
+                <!-- Projet 3 (Léo peut en ajouter plus) -->
+                <article class="portfolio-card glass-effect">
+                    <div class="video-container">
+                        <!-- Remplacer par l'embed YouTube -->
+                        <img src="https://placehold.co/600x400/D900FF/0D0C0F?text=Vid%C3%A9o+Montage+3" alt="Placeholder vidéo">
+                    </div>
+                    <div class="card-content">
+                        <h3>[Titre de la Vidéo ou du Client]</h3>
+                        <p>Description courte du montage : style, type de jeu (ex: Best-of stream, montage "fragmovie", etc.)</p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== SECTION SERVICES =========== -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Ce que je propose</h2>
+            <div class="services-grid">
+                
+                <div class="service-card glass-effect">
+                    <ion-icon name="flash-outline"></ion-icon>
+                    <h3>Montage Dynamique</h3>
+                    <p>Best-ofs de stream, vidéos "React", ou montages nerveux type "Fragmovie" avec synchronisation sur la musique.</p>
+                </div>
+                
+                <div class="service-card glass-effect">
+                    <ion-icon name="image-outline"></ion-icon>
+                    <h3>Miniatures (Thumbnails)</h3>
+                    <p>Création de miniatures YouTube percutantes et optimisées pour le clic (CTR), en lien avec votre identité visuelle.</p>
+                </div>
+
+                <div class="service-card glass-effect">
+                    <ion-icon name="film-outline"></ion-icon>
+                    <h3>Formats Courts</h3>
+                    <p>Découpage et adaptation de vos meilleurs clips pour TikTok, Instagram Reels et YouTube Shorts.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== SECTION LOGICIELS =========== -->
+    <section id="logiciels">
+        <div class="container">
+            <h2 class="section-title">Mes Outils</h2>
+            <div class="logiciels-list">
+                <!-- Léo peut remplacer par les logos des logiciels -->
+                <div class="logiciel-item glass-effect">Adobe Premiere Pro</div>
+                <div class="logiciel-item glass-effect">Adobe After Effects</div>
+                <div class="logiciel-item glass-effect">Adobe Photoshop</div>
+                <div class="logiciel-item glass-effect">DaVinci Resolve</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== SECTION CONTACT =========== -->
+    <section id="contact">
+        <div class="container contact-container glass-effect">
+            <h2 class="section-title">Donnons vie à vos vidéos</h2>
+            <p>Un projet en tête ? Contactez-moi pour discuter de vos besoins et obtenir un devis.</p>
+            <a href="mailto:leo.email@exemple.com" class="cta-button">
+                <!-- Léo doit mettre son email ici -->
+                Envoyer un email
+            </a>
+        </div>
+    </section>
+
+    <!-- =========== FOOTER =========== -->
+    <footer>
+        <div class="container footer-container">
+            <div class="social-links">
+                <!-- Léo doit mettre ses liens -->
+                <a href="#" title="YouTube"><ion-icon name="logo-youtube"></ion-icon></a>
+                <a href="#" title="Twitter/X"><ion-icon name="logo-twitter"></ion-icon></a>
+                <a href="#" title="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
+            </div>
+            <p>&copy; <span id="year"></span> Léo [Son Nom]. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Script simple pour l'année du footer -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Bonus: Script basique pour menu mobile (si Léo veut l'activer plus tard)
+        // const menuBtn = document.querySelector('.mobile-menu-btn');
+        // const navLinks = document.querySelector('.nav-links');
+        // menuBtn.addEventListener('click', () => {
+        //     navLinks.classList.toggle('active');
+        // });
+    </script>
+
+</body>
+</html>

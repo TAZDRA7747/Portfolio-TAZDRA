@@ -1,0 +1,452 @@
+/* --- VARIABLES DE COULEUR (Léo peut les changer) --- */
+:root {
+    /* Thème Gaming : Magenta et Cyan sur fond sombre */
+    --primary-color: #d900ff;   /* Magenta fluo */
+    --secondary-color: #00e5ff; /* Cyan électrique */
+    --dark-bg: #0d0c0f;         /* Fond quasi-noir (légèrement violet) */
+    --text-color: #e0e0e0;      /* Texte gris clair */
+    --text-dark: #a0a0a0;       /* Texte secondaire */
+    
+    /* Couleurs pour l'effet "Verre Liquide" (Glassmorphism) */
+    --glass-bg: rgba(20, 20, 25, 0.4); /* Fond de la carte (sombre et transparent) */
+    --glass-border: rgba(255, 255, 255, 0.1); /* Bordure légère */
+
+    /* Polices */
+    --font-title: 'Orbitron', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+/* --- RÉINITIALISATION GLOBALE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+
+/* --- ARRIÈRE-PLAN ANIMÉ (BLOBS) --- */
+/* C'est ce qui donne l'effet de couleur derrière le verre */
+.background-blobs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    /* Flou immense pour un effet diffus */
+    filter: blur(150px);
+    opacity: 0.25; /* Très subtil */
+}
+
+/* Blob 1 (Magenta) */
+.blob1 {
+    width: 500px;
+    height: 500px;
+    background: var(--primary-color);
+    top: -150px;
+    left: -150px;
+    animation: moveBlob1 15s infinite alternate ease-in-out;
+}
+
+/* Blob 2 (Cyan) */
+.blob2 {
+    width: 400px;
+    height: 400px;
+    background: var(--secondary-color);
+    bottom: -100px;
+    right: -100px;
+    animation: moveBlob2 20s infinite alternate ease-in-out;
+}
+
+/* Animation des blobs */
+@keyframes moveBlob1 {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(200px, 100px) scale(1.2); }
+}
+@keyframes moveBlob2 {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(-150px, -100px) scale(0.9); }
+}
+
+
+/* --- CLASSE UTILITAIRE "EFFET VERRE" --- */
+.glass-effect {
+    /* Le fond semi-transparent */
+    background: var(--glass-bg);
+    
+    /* Le flou d'arrière-plan (Magie du Glassmorphism) */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* Pour Safari */
+    
+    /* Bordure subtile */
+    border: 1px solid var(--glass-border);
+    
+    /* Coins arrondis style "iOS" */
+    border-radius: 16px;
+    
+    /* Ombre douce pour décoller de la page */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    
+    transition: all 0.3s ease;
+}
+
+/* --- STYLES GÉNÉRAUX --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem; /* Espace sur les côtés */
+}
+
+section {
+    padding: 6rem 0;
+}
+
+.section-title {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    /* Dégradé sur le texte */
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Bouton d'action (Call to Action) */
+.cta-button {
+    display: inline-block;
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+    padding: 0.8rem 2.5rem;
+    border-radius: 50px; /* Forme pilule */
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(217, 0, 255, 0.3), 0 8px 25px rgba(0, 229, 255, 0.3);
+}
+
+/* --- 1. NAVIGATION --- */
+nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 0;
+    /* La nav est en verre, mais légèrement plus claire */
+    background: rgba(15, 15, 20, 0.6);
+    border-radius: 0; /* Pas de coins ronds en haut */
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: none;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    font-weight: 900;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 0.5rem;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Bouton Contact dans la Nav */
+.nav-contact-btn {
+    font-weight: 700 !important;
+    color: #fff !important;
+    background: var(--primary-color);
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem !important;
+    transition: all 0.3s ease;
+}
+.nav-contact-btn:hover {
+    color: #fff !important;
+    background: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* Bouton Hamburger (caché sur desktop) */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+/* --- 2. SECTION ACCUEIL (HÉROS) --- */
+#accueil {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px; /* Espace pour la nav sticky */
+}
+
+.hero-container {
+    max-width: 800px;
+}
+
+.hero-title {
+    font-family: var(--font-title);
+    font-size: 4rem; /* Très grand */
+    font-weight: 900;
+    line-height: 1.1;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+.hero-title span {
+    font-size: 2rem;
+    display: block;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-dark);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- 3. SECTION PORTFOLIO (Vidéos) --- */
+.portfolio-grid {
+    display: grid;
+    /* Grille responsive */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.portfolio-card {
+    overflow: hidden; /* Pour que l'image ne dépasse pas les coins ronds */
+}
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.video-container {
+    position: relative;
+    /* Ratio 16:9 pour les vidéos */
+    padding-bottom: 56.25%;
+    height: 0;
+    background: #000;
+}
+.video-container img,
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+.card-content h3 {
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+.card-content p {
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+/* --- 4. SECTION SERVICES --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    padding: 2.5rem 2rem;
+    text-align: center;
+}
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+.service-card ion-icon {
+    font-size: 3.5rem;
+    /* Couleur icône */
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+.service-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+.service-card p {
+    color: var(--text-dark);
+}
+
+/* --- 5. SECTION LOGICIELS --- */
+.logiciels-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.logiciel-item {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    color: var(--text-color);
+}
+.logiciel-item:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- 6. SECTION CONTACT --- */
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+.contact-container p {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-top: -2rem;
+    margin-bottom: 2.5rem;
+}
+
+/* --- 7. FOOTER --- */
+footer {
+    padding: 3rem 0;
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+    margin-top: 4rem;
+}
+
+.social-links {
+    margin-bottom: 1rem;
+}
+.social-links a {
+    color: var(--text-dark);
+    font-size: 2rem;
+    margin: 0 0.75rem;
+    transition: color 0.3s ease;
+}
+.social-links a:hover {
+    color: var(--primary-color);
+}
+footer p {
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+/* --- 8. RESPONSIVE DESIGN (Mobile) --- */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    .hero-title span {
+        font-size: 1.5rem;
+    }
+    
+    /* Cacher les liens desktop */
+    .nav-links {
+        display: none;
+        /* Styles pour le menu mobile (si activé avec JS) */
+        /* position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--dark-bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1050; */
+    }
+    /* Afficher le bouton hamburger */
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    /* Simplification pour mobile sans JS : */
+    /* Si Léo ne veut pas de JS, on peut juste centrer les liens */
+    /* .nav-container { flex-direction: column; gap: 1rem; }
+    .nav-links { justify-content: center; } */
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
